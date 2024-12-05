@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { HelloController } from './hello/hello.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -19,6 +20,7 @@ dotenv.config();
       autoLoadEntities: true, // Lataa TypeORM-entiteetit automaattisesti
       synchronize: true, // Luo taulut automaattisesti (vain kehityksessä)
     }),
+    UsersModule,
   ],
   controllers: [AppController, HelloController],
   providers: [AppService],
